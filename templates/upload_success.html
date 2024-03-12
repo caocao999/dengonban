@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" type="text/css"  th:href="@{css/bootstrap.min.css}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+                <div class="bg-primary  text-light col-4">
+                   <h2>アップロード結果</h2>
+                </div>
+        </div>
+        <div>アクセス時刻：<span th:text="${ctime}"></span></div>
+        <div class="row">
+            <div class="col-12 ">
+                <nav class="navbar bg-secondary-subtle">
+                    <a class="nav-link active" th:href="@{/}">TOPページ</a>
+                    <a class="nav-link active" href="">管理機能</a>
+                    <a class="nav-link active" th:href="@{/logout}">ログアウト</a>
+                </nav>
+            </div>
+        </div>
+        
+ 		<div class="display-6 p-3">アップロードは完了しました。作業に戻るに上のメニューから「TOPページ」を選択してください。</hdiv>       
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" type="text/css"  th:href="@{css/bootstrap.min.css}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row  mt-3">
+                <div class=" bg-primary  text-light col-4 m-2">
+                   <h2 class="display-6  p-2">伝言板システム</span></h2>
+                </div>
+        </div>
+      
+        <div class="row mt-4">
+            <div class="col-12 ">
+                <nav class="navbar bg-secondary-subtle">
+                    <a class="nav-link active" th:href="@{message}">伝言の一覧</a>
+                    <a class="nav-link active" th:href="@{/upload}">ファイルアップロード</a>
+<!--                    <a class="nav-link active" href="">ファイルダウンロード</a>-->
+                    <a class="nav-link active" th:href="@{/login}">ログイン</a>
+                    <a class="nav-link active" th:href="@{/logout}">ログアウト</a>
+                </nav>
+            </div>
+        </div>
+        <div>アクセス時刻：<span th:text="${ctime}"></span></div>
+        <div class="row">
+            <div class="col-12">
+    		<div class="display-6 p-4">
+				「伝言板」システムの機能を利用するためには、上のメニューから「ログイン」を選択してログインしてください。
+			</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

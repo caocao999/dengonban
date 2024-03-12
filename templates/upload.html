@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" type="text/css"  th:href="@{css/bootstrap.min.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="row  ">
+                <div class="bg-primary  text-light col-3 p-1 m-1">
+                   <h2>ファイル・アップロード</h2>
+                </div>
+        </div>
+        <div>アクセス時刻：<span th:text="${ctime}"></span></div>
+        <div class="row">
+            <div class="col-12 ">
+                <nav class="navbar bg-secondary-subtle">
+                    <a class="nav-link active" th:href="@{/}">TOPページ</a>
+                    <a class="nav-link active" href="">管理機能</a>
+                    <a class="nav-link active" th:href="@{/logout}">ログアウト</a>
+                </nav>
+            </div>
+        </div>
+        
+ 		<div class="display-6 m-3">アップロードするファイルを選択した後、「SEND」ボタンを押してください</div>       
+ 		<div class="display-6 m-3">ファイルサイズは１Mバイト以下でお願いいたします。</div>       
+        
+        <div class="row">
+            <div class="col-12">
+           <form th:action="@{/upload}" method="post" enctype="multipart/form-data" th:object="${uploadForm}">
+            <div>
+                <input type="file" th:field="*{multipartFile}">
+            </div>
+            <div>
+                <input type="submit" value="SEND" class="btn btn-primary" >
+            </div>
+        </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

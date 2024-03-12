@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+     <link rel="stylesheet" type="text/css"  th:href="@{css/bootstrap.min.css}">
+<style>
+    body {
+        margin-top: 20px;
+    }
+    h2 {
+		text-align: center;
+	}
+</style>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+                <div class="bg-primary  text-light col-3 m-2">
+                   <h2><span th:text="${title}"></span></h2>
+                </div>
+        </div>
+           <div>アクセス時刻：<span th:text="${ctime}"></span></div>
+        <div class="row">
+            <div class="col-12 ">
+                <nav class="navbar bg-secondary-subtle">
+                    <a class="nav-link active" th:href="@{/}">TOPページ</a>
+                    <a class="nav-link active" href="">管理機能</a>
+                    <a class="nav-link active" th:href="@{/logout}">ログアウト</a>
+               </nav>
+            </div>
+        </div>
+        
+        <div class="row">
+			<div class="col-6">
+        <form method="post" th:action="@{/message}" th:object="${formData}">
+			<style>.err{color:red}</style>
+			<label for="messageBody" class="form-label">メッセージ</label>
+			<input type="text" class="form-control" name="messageBody"  th:value="*{messageBody}" th:errorclass="err"/>
+			<div th:if="${#fields.hasErrors('messageBody')}" th:errors="*{messageBody}"  th:errorclass="err"></div>
+			<label for="name" class="form-label">名前</label>
+			<input type="text" class="form-control" name="name"  th:value="*{name == null ?  '匿名希望' : name}"   th:errorclass="err" />
+			<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"  th:errorclass="err"></div>
+			<input type="submit"  class="btn btn-primary"  value="投稿">
+		</form>
+			</div>
+		</div>
+        <hr>
+        <table class="table table-striped">
+			<thead class="thead-dark"><th>名前</th><th>メッセージ</th><th>ポスト時間</th></thead>
+			<tbody>
+				<tr th:each="item : ${data}">
+					<td th:text="${item.name}"></td>
+					<td th:text="${item.messageBody}"></td>
+					<td th:text="${item.postedDateTime}"></td>
+				</tr>
+			</tbody>
+		</table>
+        
+        
+        
+        
+        
+<!--        <div class="row">-->
+<!--            <div class="col-12">-->
+    
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+</body>
+</html>
